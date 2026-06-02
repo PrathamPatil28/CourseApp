@@ -14,6 +14,7 @@ public class Courses {
     private long id;
     private String title;
     private String description;
+    private String fees;
 
     public Courses(){
 
