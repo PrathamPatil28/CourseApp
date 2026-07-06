@@ -88,7 +88,7 @@ const AddCourses = () => {
 
             <Container className="text-center">
             <Button type="submit" color="success"> Add Course</Button>
-            <Button type="reset" color="warning ms-3">Clear</Button>
+            <Button type="reset" color="warning ms-4">Clear</Button>
             </Container>
         </Form>
 
