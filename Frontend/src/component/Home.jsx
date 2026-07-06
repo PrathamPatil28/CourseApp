@@ -8,7 +8,7 @@ const Home = () => {
 
   return (
     <div>
-      <Container className="p-5  rounded text-center"
+      <Container className="p-6  rounded text-center"
        style={{ backgroundColor: '#a4c8ed', color: '#333' }} 
       >
         <h1 >Learn Code With Pratham</h1>
