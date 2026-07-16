@@ -17,7 +17,7 @@ const Cousrse = ({ course, onDelete }) => {
   };
 
   return (
-    <Card className="my-3">
+    <Card className="my-4">
       <CardBody className="text-center">
         <CardSubtitle className="fw-bold">{course.title}</CardSubtitle>
         <CardText>{course.description}</CardText>
