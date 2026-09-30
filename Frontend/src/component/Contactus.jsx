@@ -9,7 +9,7 @@ const contact =()=>{
     return(
         <div>
             <h3>You Can Simply Contact Us </h3>
-            <p>Mobile No: 8380819583</p>
+            <p>Mobile No: 8380819582</p>
             <p>Email : patilpratham457@gmail.com</p>
         </div>
     )
