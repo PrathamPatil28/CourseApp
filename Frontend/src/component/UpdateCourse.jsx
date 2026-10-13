@@ -89,7 +89,7 @@ const UpdateCourses = () => {
           </Button>
           <Button
             type="reset"
-            color="warning ms-3"
+            color="warning ms-4"
             onClick={() => setCourses({ title: "", description: "" })}
           >
             Clear
