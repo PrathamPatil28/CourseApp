@@ -14,34 +14,22 @@ import java.util.Optional;
 @Repository
 public interface CourseRepo extends JpaRepository<Course, Long> {
 
-    /**
-     * Finds an active course by ID (soft-delete safe).
-     */
+    // 1. Safe active entity lookup (ignores soft-deleted records)
     Optional<Course> findByIdAndActiveTrue(Long id);
 
-    /**
-     * Returns a paginated list of all active courses.
-     */
+    // 2. Paginated active list
     Page<Course> findByActiveTrue(Pageable pageable);
 
-    /**
-     * Case-insensitive keyword search across title and description.
-     */
-    @Query("""
-        SELECT c FROM Course c 
-        WHERE c.active = true 
-          AND (LOWER(c.title) LIKE LOWER(CONCAT('%', :query, '%')) 
-               OR LOWER(c.description) LIKE LOWER(CONCAT('%', :query, '%')))
-    """)
-    Page<Course> searchCourses(@Param("query") String query, Pageable pageable);
+    // 3. Search courses by title (case-insensitive with pagination)
+    Page<Course> findByTitleContainingIgnoreCaseAndActiveTrue(String title, Pageable pageable);
 
-    /**
-     * Filter active courses by price range using precise BigDecimal bounds.
-     */
-    Page<Course> findByActiveTrueAndFeesBetween(BigDecimal minFee, BigDecimal maxFee, Pageable pageable);
+    // 4. Financial range query (e.g. fee filter slider)
+    Page<Course> findByFeesBetweenAndActiveTrue(BigDecimal minFees, BigDecimal maxFees, Pageable pageable);
 
-    /**
-     * Checks if a course with the same title already exists.
-     */
+    // 5. Duplicate title validation
     boolean existsByTitleIgnoreCaseAndActiveTrue(String title);
+
+    // 6. Native / JPQL example: count active courses
+    @Query("SELECT COUNT(c) FROM Course c WHERE c.active = true")
+    long countActiveCourses();
 }
