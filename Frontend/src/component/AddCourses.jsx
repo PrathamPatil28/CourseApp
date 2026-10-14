@@ -41,7 +41,7 @@ const AddCourses = () => {
 
 
     return (<Fragment>
-        <h1 className="text-center my-3">Fill Course Details</h1>
+        <h1 className="text-center my-4">Fill Course Details</h1>
         <Form onSubmit={handelForm}>
             <FormGroup>
                 <label for="userId" >Couser Id</label>
