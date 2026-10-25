@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Menus = () => {
     return (
         <div>
-            <ListGroup className="mt-2">
+            <ListGroup className="mt-3">
                 <ListGroupItem action tag={Link} to="/">
                     Home
                 </ListGroupItem>
